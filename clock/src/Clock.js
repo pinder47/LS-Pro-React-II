@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-/*import './Clock.css'; (Will add later)*/
+import './Clock.css';
 
 
 export default class Clock extends Component{
@@ -41,7 +41,7 @@ export default class Clock extends Component{
 
       //SET MINUTES TENS DIGIT
       if (this.state.now.getMinutes() < 10){ //If there is no minute tens digit...
-        currentTime += "o'"; //...put in an " o' " to make the grammar work e.g., "Four o' seven"
+        currentTime += " o'"; //...put in an " o' " to make the grammar work e.g., "Four o' seven"
       }
 
       else if (Math.floor(this.state.now.getMinutes() / 10) == 1){ //If the tens digit exists and is a 1...
@@ -94,8 +94,14 @@ export default class Clock extends Component{
     }
 
   return(
-        <div>
-          {currentTime}
+        <div className="clockContainer">
+          <div className="timeDisplay">
+            {currentTime}
+          </div>
+
+          <div className="dateDisplay">
+            {this.state.now.toLocaleString('en-US', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' })}
+          </div>
         </div>
       );
     }
