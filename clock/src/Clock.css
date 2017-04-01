@@ -1,7 +1,10 @@
 @import url('https://fonts.googleapis.com/css?family=Maven+Pro');
 
+Body{
+  background-color: #0e131c;
+}
+
 .clockContainer{
-  background-color: black;
   color: white;
 }
 
